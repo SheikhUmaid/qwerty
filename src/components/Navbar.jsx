@@ -4,6 +4,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 const Navbar = () => {
   const [activeLink, setActiveLink] = useState('Home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const navRef = useRef(null);
   const navItemsRef = useRef([]);
   const sliderRef = useRef(null);
@@ -21,6 +22,37 @@ const Navbar = () => {
     Workshop: { path: '/workshop', sectionId: 'workshops' },
     'Contact Us': { path: '/contact', sectionId: null },
   };
+
+  // Handle window resize with debounce
+  useEffect(() => {
+    let timeoutId;
+    
+    const handleResize = () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        const mobile = window.innerWidth < 768;
+        setIsMobile(mobile);
+        
+        // Close mobile menu when switching to desktop
+        if (!mobile && isMobileMenuOpen) {
+          setIsMobileMenuOpen(false);
+        }
+        
+        // Recalculate slider position on desktop
+        if (!mobile && activeLink) {
+          updateSliderPosition();
+        }
+      }, 150);
+    };
+
+    handleResize(); // Initial check
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [isMobileMenuOpen, activeLink]);
 
   // Close mobile menu when clicking outside
   useEffect(() => {
@@ -44,11 +76,10 @@ const Navbar = () => {
     setIsMobileMenuOpen(false);
   }, [location]);
 
-  // Sliding animation for desktop active nav item
-  useEffect(() => {
-    if (window.innerWidth < 768) return;
+  // Function to update slider position
+  const updateSliderPosition = () => {
+    if (isMobile) return;
 
-    // If activeLink is null or empty, hide the slider
     if (!activeLink) {
       const sliderElement = sliderRef.current;
       if (sliderElement) {
@@ -66,7 +97,12 @@ const Navbar = () => {
       sliderElement.style.width = `${offsetWidth}px`;
       sliderElement.style.transform = `translateX(${offsetLeft}px)`;
     }
-  }, [activeLink, location]);
+  };
+
+  // Sliding animation for desktop active nav item
+  useEffect(() => {
+    updateSliderPosition();
+  }, [activeLink, location, isMobile]);
 
   // Update active link based on URL path and hash
   useEffect(() => {
@@ -165,34 +201,44 @@ const Navbar = () => {
     }
   };
 
-  // Updated handleClick for conditional routing and scrolling
   const handleClick = (item) => {
     const config = linkConfig[item];
     if (!config) return;
 
     setIsMobileMenuOpen(false);
 
-    // Home always navigate or scroll to top
+    // Home navigation - always go to root
     if (item === 'Home') {
-      if (location.pathname !== '/') {
-        navigate('/');
-      } else {
+      if (location.pathname === '/' && !location.hash) {
+        // Already on home, scroll to top
         window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        // Navigate to home and scroll to top
+        navigate('/');
+        setTimeout(() => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 100);
       }
       return;
     }
 
-    // If currently on landing page, scroll to section if exists
+    // For other navigation items
     if (location.pathname === '/') {
+      // On landing page
       if (config.sectionId) {
+        // Has a section, scroll to it
         scrollToSection(config.sectionId);
       } else if (config.path && config.path !== '/') {
+        // No section but has a path, navigate
         navigate(config.path);
       }
     } else {
-      // On other pages, always navigate to the full page route
+      // On other pages, navigate to the designated path
       if (config.path && config.path !== '/') {
         navigate(config.path);
+      } else if (config.sectionId) {
+        // Navigate to home with hash
+        navigate(`/#${config.sectionId}`);
       } else {
         navigate('/');
       }
@@ -237,10 +283,28 @@ const Navbar = () => {
             aria-label="Toggle mobile menu"
             className="flex items-center justify-center w-12 h-12 rounded-xl border border-white/20 bg-[rgba(30,10,50,0.5)] backdrop-blur-[5px] text-white hover:text-white/80 transition-colors duration-300"
           >
-            <div className="w-6 h-6 flex flex-col justify-center items-center">
-              <span className={`block w-5 h-0.5 bg-current transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-1.5' : 'mb-1'}`} />
-              <span className={`block w-5 h-0.5 bg-current transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : 'mb-1'}`} />
-              <span className={`block w-5 h-0.5 bg-current transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`} />
+            <div className="w-6 h-5 flex flex-col justify-between items-center">
+              <span 
+                className={`block w-6 h-0.5 bg-current transition-all duration-300 ease-in-out ${
+                  isMobileMenuOpen 
+                    ? 'rotate-45 translate-y-2' 
+                    : 'rotate-0 translate-y-0'
+                }`} 
+              />
+              <span 
+                className={`block w-6 h-0.5 bg-current transition-all duration-300 ease-in-out ${
+                  isMobileMenuOpen 
+                    ? 'opacity-0 scale-0' 
+                    : 'opacity-100 scale-100'
+                }`} 
+              />
+              <span 
+                className={`block w-6 h-0.5 bg-current transition-all duration-300 ease-in-out ${
+                  isMobileMenuOpen 
+                    ? '-rotate-45 -translate-y-2' 
+                    : 'rotate-0 translate-y-0'
+                }`} 
+              />
             </div>
           </button>
         </div>
@@ -249,10 +313,13 @@ const Navbar = () => {
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-40 md:hidden">
-          <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
+          <div 
+            className="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300"
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
           <div
             ref={mobileMenuRef}
-            className="absolute top-24 left-4 right-4 bg-[rgba(30,10,50,0.95)] backdrop-blur-[10px] rounded-2xl border border-white/20 shadow-2xl"
+            className="absolute top-24 left-4 right-4 bg-[rgba(30,10,50,0.95)] backdrop-blur-[10px] rounded-2xl border border-white/20 shadow-2xl animate-in fade-in slide-in-from-top-5 duration-300"
           >
             <ul className="p-2">
               {navItems.map((item, index) => (
@@ -263,7 +330,11 @@ const Navbar = () => {
                       e.preventDefault();
                       handleClick(item);
                     }}
-                    className={`block w-full px-6 py-4 rounded-xl font-medium transition-all duration-300 text-center ${activeLink === item ? 'bg-white text-black shadow-lg' : 'text-white hover:bg-white/10'} ${index < navItems.length - 1 ? 'mb-1' : ''}`}
+                    className={`block w-full px-6 py-4 rounded-xl font-medium transition-all duration-300 text-center ${
+                      activeLink === item 
+                        ? 'bg-white text-black shadow-lg' 
+                        : 'text-white hover:bg-white/10'
+                    } ${index < navItems.length - 1 ? 'mb-1' : ''}`}
                   >
                     {item}
                   </a>

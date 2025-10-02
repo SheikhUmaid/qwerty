@@ -1,6 +1,5 @@
 import React from 'react';
-
-const heroBg = 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1500&q=80';
+import hero from '/images/workshops/home-workshop/data.png';
 
 const HeroSection = () => (
   <section className="relative w-full h-[80vh]">
@@ -12,7 +11,7 @@ const HeroSection = () => (
     {/* Hero Background */}
     <div
       className="absolute inset-0 bg-cover -mt-[140px] z-20 opacity-50"
-      style={{ backgroundImage: `url(${heroBg})` }}
+      style={{ backgroundImage: `url(${hero})` }}
     />
 
     {/* Dark overlay for better contrast */}

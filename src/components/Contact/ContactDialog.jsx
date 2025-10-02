@@ -3,7 +3,7 @@ import { FiMail, FiPhone } from 'react-icons/fi';
 
 const ContactDialog = () => {
     return (
-        <div className="w-full max-w-lg bg-gradient-to-br border  border-white/20 rounded-xl mt-10 px-24 py-20 flex flex-col justify-center shadow-lg">
+        <div className="w-full max-w-[95vw] sm:max-w-md md:max-w-lg bg-gradient-to-br border border-white/20 rounded-xl mt-8 px-4 py-8 sm:px-12 sm:py-12 md:px-24 md:py-20 flex flex-col justify-center shadow-lg">
             
             {/* Heading */}
             <h2 className="text-5xl font-bold mb-4">
@@ -21,7 +21,7 @@ const ContactDialog = () => {
                 <div className="flex items-center gap-3">
                     <FiMail className="text-lg text-[#7E22CE]" />
                     <span className="text-gray-200 text-sm">
-                        :- qwertyio.sdm@gmail.com
+                        :- <a href="mailto:qwertyio.sdm@gmail.com" className="underline">qwertyio.sdm@gmail.com</a>
                     </span>
                 </div>
                 <div className="flex items-center gap-3">

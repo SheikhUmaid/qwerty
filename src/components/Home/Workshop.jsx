@@ -1,29 +1,31 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Add this import
-import Button from '../Button'; // Reusable Button component
+import { useNavigate } from 'react-router-dom'; 
+import Button from '../Button';
+import dataExplorer from '/images/workshops/home-workshop/data.png'
+import unixShell from '/images/workshops/home-workshop/unix.png'
+import figma from '/images/workshops/figma.jpg'
 
-// The slides data; you can keep this here or move to parent as needed
 const slides = [
   {
-    title: 'Workshop - name',
+    title: 'Data Explorer',
     description:
-      '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."',
+      '"A hands-on workshop on data analysis and visualization using tools like Tableau."',
     image:
-      'https://images.unsplash.com/photo-1542744095-291d1f67b221?q=80&w=2070&auto=format&fit=crop',
+      dataExplorer,
   },
   {
-    title: 'Digital Marketing Mastery',
+    title: 'Unix shell Programming',
     description:
-      '"Unlock the secrets to online growth and brand visibility with our expert-led sessions."',
+      '"A practical workshop on Unix shell programming, mastering CLI, scripting fundamentals, and automation techniques."',
     image:
-      'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2130&auto=format&fit=crop',
+      unixShell,
   },
   {
-    title: 'Leadership & Management',
+    title: 'FigmaVerse',
     description:
-      '"Cultivate the skills to inspire your team and drive projects to successful completion."',
+      '"A practical workshop on UI/UX design covering design laws, Figma tools, and hands-on prototyping projects."',
     image:
-      'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop',
+     figma,
   },
 ];
 

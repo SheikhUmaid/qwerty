@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '../Button';
-import teamPhoto from '../../assets/team-photo.jpg';
+import teamPhoto from '/images/workshops/about.png';
 import codingIllustration from '../../assets/coding.svg';
 
 const About = ({ onLearnMore }) => {
@@ -11,7 +11,7 @@ const About = ({ onLearnMore }) => {
             {/* --- LEFT COLUMN (Text and Photo) --- */}
             <div className="w-full max-w-lg flex-1 lg:max-w-none">
                 <p className="mb-8 text-lg leading-relaxed text-gray-300 md:text-xl">
-                    "Empowering students to innovate, collaborate, and turn ideas into reality—Qwerty.I/O is where curiosity meets action."
+                    "Empowering students to innovate, collaborate, and turn ideas into reality - QWERTY.I/O is where curiosity meets action."
                 </p>
                 <img
                     src={teamPhoto}

@@ -55,7 +55,7 @@ const FeedBackForm = () => {
 
   return (
     <div
-      className={`w-[450px] rounded-2xl mr-28 p-10 flex flex-col bg-[#04000D] ${isClicked ? activeShadow : defaultShadow} transition-all duration-300 ease-in-out cursor-pointer`}
+      className={`w-full max-w-[95vw] sm:max-w-md md:w-[450px] rounded-2xl mr-0 md:mr-28 p-4 sm:p-8 md:p-10 flex flex-col bg-[#04000D] ${isClicked ? activeShadow : defaultShadow} transition-all duration-300 ease-in-out cursor-pointer`}
       onClick={handleClick}
     >
       <h3 className="text-white text-center text-3xl font-semibold mb-10">

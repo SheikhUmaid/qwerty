@@ -19,7 +19,7 @@ export default function Team({ onLearnMore }) {
             Meet our <span className="text-purple-500">Team</span>
           </h2>
           <p className="max-w-[450px] text-right text-gray-300">
-          “Meet the team behind QWERTY, driving innovation and empowering students with industry-ready skills.”
+          “Meet the team behind QWERTY.I/O, driving innovation and empowering students with industry-ready skills.”
           </p>
         </div>
 

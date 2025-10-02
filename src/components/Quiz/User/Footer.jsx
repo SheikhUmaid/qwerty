@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="max-w-6xl mx-auto flex flex-wrap justify-between gap-8 mb-12">
 
         <div className="flex-1 min-w-[220px]">
-          <h3 className="text-3xl font-bold mb-4">Qwerty.i/o</h3>
+          <h3 className="text-3xl font-bold mb-4">QWERTY.I/O</h3>
           <div className="flex gap-6">
             <a
               href="#"
@@ -60,7 +60,7 @@ const Footer = () => {
       </div>
 
       <div className="text-center text-sm text-gray-400 pt-8 border-t border-gray-800">
-        <p>© {new Date().getFullYear()} Qwerty.i/o. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} QWERTY.I/O. All rights reserved.</p>
       </div>
     </footer>
   );
