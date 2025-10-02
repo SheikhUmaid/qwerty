@@ -32,9 +32,14 @@ const Hero = ({ onLearnMore }) => {
 </p>
 
   <div className="flex justify-center items-center gap-4">
-    <Button variant="primary" onClick={() => console.log('Learn More clicked!')}>
-      Learn more
-    </Button>
+    <Button
+          variant="primary"
+          onClick={() => {
+            window.location.hash = "about-us";
+          }}
+        >
+          Learn more
+        </Button>
     
     {Visible && (
       <Button variant="secondary" onClick={onLearnMore}>
