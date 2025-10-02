@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #04000D;
+    @apply text-gray-200;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply rounded-full bg-purple-500 px-8 py-3 text-lg font-semibold text-white transition hover:bg-purple-600;
+  }
+}
