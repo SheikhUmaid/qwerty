@@ -2,7 +2,7 @@
 import React from "react";
 
 const GeekOlympics = "/images/workshops/geek.png";
-const Insignia = "/images/workshops/insignia.jpg";
+const Insignia = "/images/workshops/insigniaFinal.jpg";
 
 function Events() {
   return (

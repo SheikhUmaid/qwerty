@@ -14,15 +14,18 @@ export default function Team({ onLearnMore }) {
   return (
     <section className="py-24">
       <div className="max-w-6xl mx-auto px-4">
-        <div className="flex flex-wrap items-end justify-between gap-4 mb-16">
-          <h2 className="shrink-0 text-5xl font-bold">
+        {/* Header section */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 text-center md:text-left">
+          <h2 className="text-5xl sm:text-5xl md:text-6xl font-bold leading-tight">
             Meet our <span className="text-purple-500">Team</span>
           </h2>
-          <p className="max-w-[450px] text-right text-gray-300">
-          “Meet the team behind QWERTY.I/O, driving innovation and empowering students with industry-ready skills.”
+          <p className="max-w-[500px] text-gray-300 text-base sm:text-lg md:text-right md:self-end">
+            “Meet the team behind QWERTY.I/O, driving innovation and empowering
+            students with industry-ready skills.”
           </p>
         </div>
 
+        {/* Swiper Carousel */}
         <Swiper
           modules={[EffectCoverflow, Autoplay]}
           effect="coverflow"
@@ -62,28 +65,24 @@ export default function Team({ onLearnMore }) {
             let boxShadow = "";
 
             if (distance === 0) {
-              // Active card
               cardClass = "bg-transparent text-white";
               imgFilter = "none";
               scale = "scale-105";
               textClass = "text-white";
               boxShadow = "0 10px 40px 0 rgba(114,84,255,0.36)";
             } else if (distance === 1) {
-              // First neighbor cards
               cardClass = "bg-violet-900 bg-opacity-80 text-gray-200";
               imgFilter = "brightness(0.5) blur(2px)";
               scale = "scale-98";
               textClass = "text-gray-200";
               boxShadow = "0 6px 16px 0 rgba(114,84,255,0.13)";
             } else if (distance === 2) {
-              // Second neighbor cards
               cardClass = "bg-violet-900 bg-opacity-70 text-gray-400";
               imgFilter = "brightness(0.35) blur(3px)";
               scale = "scale-95";
               textClass = "text-gray-400";
               boxShadow = "0 4px 10px 0 rgba(114,84,255,0.08)";
             } else {
-              // Far cards (most faded/blurred)
               cardClass = "bg-violet-900 bg-opacity-60 text-gray-500";
               imgFilter = "brightness(0.2) blur(10px)";
               scale = "scale-90";
@@ -94,13 +93,11 @@ export default function Team({ onLearnMore }) {
             return (
               <SwiperSlide
                 key={idx}
-                className="!w-[270px] flex justify-center items-center select-none"
+                className="!w-[280px] sm:!w-[320px] flex justify-center items-center select-none"
               >
                 <div
-                  className={`rounded-2xl relative w-full min-h-[350px] shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-end ${cardClass} ${scale}`}
-                  style={{
-                    boxShadow,
-                  }}
+                  className={`rounded-2xl relative w-full min-h-[380px] shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-end ${cardClass} ${scale}`}
+                  style={{ boxShadow }}
                 >
                   <img
                     src={member.photo}
@@ -108,7 +105,7 @@ export default function Team({ onLearnMore }) {
                     className="absolute top-0 left-0 w-full h-full object-cover"
                     style={{ filter: imgFilter }}
                   />
-                    <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-black/90 to-transparent h-1/2 pointer-events-none" />
+                  <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-black/90 to-transparent h-1/2 pointer-events-none" />
                   <div
                     className={`relative z-10 px-4 pb-6 flex flex-col items-center ${textClass}`}
                   >
@@ -145,15 +142,12 @@ export default function Team({ onLearnMore }) {
           })}
         </Swiper>
 
-        {/* Add the "Learn More" button below the Swiper */}
+        {/* Show More Button */}
         {onLearnMore && (
           <div className="mt-12 flex justify-center">
-            <Button 
-                    variant="primary" 
-                    onClick={onLearnMore}
-                >
-                    Show More
-                </Button>
+            <Button variant="primary" onClick={onLearnMore}>
+              Show More
+            </Button>
           </div>
         )}
       </div>
