@@ -1,0 +1,6 @@
+/* Hides the default clock icon */
+input[type="time"]::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+  appearance: none;
+}

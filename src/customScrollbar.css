@@ -1,0 +1,23 @@
+/* WebKit Browsers: Chrome, Safari, Edge */
+::-webkit-scrollbar {
+  width: 4px; /* Slightly wider for better UX */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* Transparent track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #9333ea, #7346ef); /* Subtle gradient */
+  /* border-radius: 0px; Smooth roundness */
+  transition: background 0.3s ease; /* Smooth color change */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #9333ea, #f472b6); /* Vibrant on hover */
+}
+
+
+
+
+

@@ -1,0 +1,108 @@
+[
+  {
+    "name": "Yasaswini B",
+    "role": "Technical",
+    "photo": "/images/yasaswini.png",
+    "linkedin": "https://www.linkedin.com/in/yasaswini-b-b418032b9",
+    "instagram": "https://www.instagram.com/yasaswini_0511"
+  },
+  {
+    "name": "Sheikh Umaid",
+    "role": "Technical",
+    "photo": "/images/sheikh.jpg",
+    "linkedin": "https://www.linkedin.com/in/sheikh-umaid-795a101b6",
+    "instagram": "https://instagram.com/sheikh.umaid"
+  },
+  {
+    "name": "Prithviraj P Naik",
+    "role": "Technical",
+    "photo": "/images/prithvi.jpg",
+    "linkedin": "https://www.linkedin.com/in/prithviraj-naik-",
+    "instagram": "https://instagram.com/prithviraj_naik_"
+  },
+  {
+    "name": "Ishank Kumar",
+    "role": "Logistics",
+    "photo": "/images/ishank.jpg",
+    "linkedin": "https://www.linkedin.com/in/ishank-kumar-479204260/",
+    "instagram": "https://www.instagram.com/ishank_here_/"
+  },
+  
+  {
+    "name": "Aditya P S",
+    "role": "Public Relations",
+    "photo": "/images/aditya.jpg",
+    "linkedin": "https://www.linkedin.com/in/aditya-sambrani-720a85376",
+    "instagram": "https://www.instagram.com/adi_p_s_"
+  },
+  {
+    "name": "Isha U Prabhu",
+    "role": "Logistics",
+    "photo": "/images/isha.png",
+    "linkedin": "https://www.linkedin.com/in/isha-prabhu-6927a9322/",
+    "instagram": "https://www.instagram.com/ishu_260117/"
+  },
+  {
+    "name": "Kaveri Bhimappa Jarali",
+    "role": "Technical",
+    "photo": "/images/kaveri.jpg",
+    "linkedin": "https://linkedin.com/in/kaveri-jarali-99bb41293",
+    "instagram": "https://www.instagram.com/kaveri_jarali06?igsh=MWlpb3ZwbTg1dHY2cw=="
+  },
+  {
+    "name": "Anisha Rajesh Jartarghar",
+    "role": "Management and Technical",
+    "photo": "/images/anisha.png",
+    "linkedin": "https://www.linkedin.com/in/anisha-jartarghar-6889682a2",
+    "instagram": "https://www.instagram.com//anisha29_13"
+  },
+  {
+    "name": "Sanjeevini R Malagi",
+    "role": "Public Relations",
+    "photo": "/images/sanjeevini.jpg",
+    "linkedin": "https://www.linkedin.com/in/sanjeevini-malagi-1115a3290",
+    "instagram": "https://www.instagram.com/sanjeevinirmalagi"
+  },
+  {
+    "name": "Nagaraj Doddamani",
+    "role": "Technical",
+    "photo": "/images/nagraj.jpg",
+    "linkedin": "https://www.linkedin.com/in/nagaraj-doddamani-a94993293/",
+    "instagram": "https://www.instagram.com/nagarajdoddamani143/"
+  },
+  {
+    "name": "Varsha Kumbar",
+    "role": "Public Relations",
+    "photo": "/images/varsha.png",
+    "linkedin": "https://www.linkedin.com/in/varsha-kumbar-16b004313",
+    "instagram": "https://www.instagram.com/databrains_24?igsh=ajBybWZyMGhtNmpn"
+  },
+  {
+    "name": " Shrusti Ballurgi",
+    "role": "",
+    "photo": "/images/shrusti.jpg",
+    "linkedin": "https://www.linkedin.com/in/shrusti-ballurgi-99265a319",
+    "instagram": "https://www.instagram.com/shrusti_493"
+  },
+  {
+    "name": "Vikash Pandey ",
+    "role": "Management",
+    "photo": "/images/vikash.jpg",
+    "linkedin": "https://www.linkedin.com/in/vikash-pandey-758053377",
+    "instagram": "https://www.instagram.com/vikashpandey4202"
+  },
+  {
+    "name": "Swati G Shivashimpar",
+    "role": "",
+    "photo": "/images/swati.png",
+    "linkedin": "https://www.linkedin.com/in/swati-gangadhar-30003633a",
+    "instagram": "https://www.instagram.com/aprifool_007"
+  },
+  {
+    "name": "Vaibhav Chowhan",
+    "role": "",
+    "photo": "/images/vaibhav.jpg",
+    "linkedin": "https://www.linkedin.com/in/vaibhav-chowhan-602984376",
+    "instagram": "https://www.instagram.com/vaibhav_dc18"
+  }
+]
